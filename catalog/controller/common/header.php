@@ -31,18 +31,6 @@ class ControllerCommonHeader extends Controller {
             $data['city'] = 'Москва';
         }
         
-        /*
-        echo '<pre>';
-        var_dump($this->request->server['REMOTE_ADDR']);
-        echo '</pre>';
-        
-        echo '<pre>';
-	    var_dump($my_geo);
-        echo '</pre>';
-        */
-        
-        
-	    
 		// Analytics
 		$this->load->model('setting/extension');
 
