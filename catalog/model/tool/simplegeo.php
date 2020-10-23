@@ -12,6 +12,7 @@ class ModelToolSimpleGeo extends Model {
     const SIMPLE_GEO_OWN               = 1;
     const SIMPLE_GEO_MAXMIND_EXTENSION = 2;
     const SIMPLE_GEO_MAXMIND_TABLE     = 3;
+    
 
     public function getGeoDataByIp($mode) {
 

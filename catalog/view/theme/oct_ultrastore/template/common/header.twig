@@ -165,10 +165,18 @@
 			  </div>
 			  <div class="body">
 				  <ul class="list">
+					  {% for region in regions %}
+						  <li id="{{ region.id }}">{{ region.OblName }}</li>
+					  {% endfor %}
+				  </ul>
+
+				  <!--
+				  <ul class="list">
 					  <li id="achinsk"><a onclick="change_city('achinsk');" title="Ачинск">Ачинск</a></li>
 					  <li id="bogotol"><a onclick="change_city('bogotol');" title="Боготол">Боготол</a></li>
 					  <li id="krasnoyarsk"><a onclick="change_city('krasnoyarsk');" title="Красноярск">Красноярск</a></li>
 				  </ul>
+				  -->
 			  </div>
 		  </div>
 	  </div>

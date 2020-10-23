@@ -31,6 +31,15 @@ class ControllerCommonHeader extends Controller {
             $data['city'] = 'Москва';
         }
         
+        $this->load->model('tool/deliverygeo');
+        $regions = $this->model_tool_deliverygeo->getCdekRegions();
+        $data['regions'] = $regions;
+        /*
+        echo '<pre>';
+        var_dump($regions);
+        echo '</pre>';
+        */
+        
 		// Analytics
 		$this->load->model('setting/extension');
 
