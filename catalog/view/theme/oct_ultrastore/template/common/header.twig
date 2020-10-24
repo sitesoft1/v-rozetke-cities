@@ -192,11 +192,11 @@
 							  console.log(region_id);
 
 							  $.ajax({
-								  url: "http://v-rozetke.ru/index.php?route=tool/cities",
+								  url: "index.php?route=tool/cities&region_id="+region_id,
 								  cache: false,
 								  success: function(html){
 								  	console.log(html);
-									  $(".js-chosen-city").html('<option value=""></option><option value="1">Москва</option><option value="2">Санкт-петербург</option><option value="3">Омск</option>');
+									  $(".js-chosen-city").html(html);
 									  $('.js-chosen-city').chosen({
 										  width: '100%',
 										  no_results_text: 'Совпадений не найдено',
