@@ -11,8 +11,9 @@ $(document).ready(function(){
     }
     else 
     {
+        var checked_city_name = localStorage.getItem("checkedCityName");
         $('.achinsk').show();
-        $('#city_selected').html('<img src="catalog/view/theme/oct_ultrastore/img/location-arrow.svg" class="us-navbar-account" alt="" />'+'<span class="hidden-xs">Ваш город: </span>'+'<span class="hidden-xs city_name">'+'Ачинск'+'</span>');
+        $('#city_selected').html('<img src="catalog/view/theme/oct_ultrastore/img/location-arrow.svg" class="us-navbar-account" alt="" />'+'<span class="hidden-xs">Ваш город: </span>'+'<span class="hidden-xs city_name">'+checked_city_name+'</span>');
     }
 });
 

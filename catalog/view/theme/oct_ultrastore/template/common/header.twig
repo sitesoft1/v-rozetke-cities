@@ -186,6 +186,8 @@
 				  <script>
 					  $(document).ready(function(){
 
+						  localStorage.setItem("checkedCityName", '{{ city }}');
+
 						  $('.js-chosen').change(function(){
 							  console.log('change region');
 							  var region_id = $('.js-chosen').val();
@@ -216,14 +218,6 @@
 
 					  });
 				  </script>
-
-				  <!--
-				  <ul class="list">
-					  {% for region in regions %}
-						  <li id="{{ region.id }}">{{ region.OblName }}</li>
-					  {% endfor %}
-				  </ul>
-				  -->
 
 				  <!--
 				  <ul class="list">
