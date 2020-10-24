@@ -168,6 +168,7 @@
 			  <div class="body">
 
 				  <div class="select_wrp_all">
+
 					  <div class="select_wrp select_wrp_region">
 						  <select class="js-chosen" name="region">
 							  {% for region in regions %}
@@ -176,19 +177,27 @@
 						  </select>
 					  </div>
 
-					  <div class="select_wrp">
-						  <select class="js-chosen-city" name="city">
-							  <option value=""></option>
-						  </select>
+					  <div class="select_wrp select_wrp_city">
+						  <select class="js-chosen-city" name="city"><option value=""></option></select>
 					  </div>
+
 				  </div>
+				    <div class="ok_button">
+					  		<button onclick="city_popup('hide')" id="city-ok-button" type="button" class="us-module-btn us-module-btn-green">Выбрать</button>
+					</div>
 
 				  <script>
 					  $(document).ready(function(){
 
+					  	$('.ok_button').hide();
+
 						  localStorage.setItem("checkedCityName", '{{ city }}');
 
-						  $('.js-chosen').change(function(){
+						  $('.js-chosen').on('change', function(){
+
+						  	$('.ok_button').hide();
+						  	$(".select_wrp_city").html('<select class="js-chosen-city" name="city"><option value=""></option></select>');
+
 							  console.log('change region');
 							  var region_id = $('.js-chosen').val();
 							  console.log(region_id);
@@ -197,14 +206,26 @@
 								  url: "index.php?route=tool/cities&region_id="+region_id,
 								  cache: false,
 								  success: function(html){
-								  	console.log(html);
+
+								  	  //console.log(html);
 									  $(".js-chosen-city").html(html);
-									  $('.js-chosen-city').chosen({
-										  width: '100%',
-										  no_results_text: 'Совпадений не найдено',
-										  placeholder_text_single: 'Выберите город'
-									  });
+
+										  $('.js-chosen-city').chosen({
+											  width: '100%',
+											  no_results_text: 'Совпадений не найдено',
+											  placeholder_text_single: 'Выберите город'
+										  });
+
 								  }
+							  });
+
+							  $('.js-chosen-city').on('change', function(){
+							  		$('.ok_button').show();
+
+							  		$('.ok_button').on('click', function(){
+							  			var new_city_name = $(".js-chosen-city").val();
+							  			change_city(new_city_name);
+							  		});
 							  });
 
 						  });
@@ -215,6 +236,7 @@
 							  no_results_text: 'Совпадений не найдено',
 							  placeholder_text_single: 'Выберите область'
 						  });
+						 
 
 					  });
 				  </script>

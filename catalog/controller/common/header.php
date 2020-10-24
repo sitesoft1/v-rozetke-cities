@@ -18,9 +18,9 @@ class ControllerCommonHeader extends Controller {
         //Краснодар
         //$this->request->server['REMOTE_ADDR'] = '193.124.6.255';
         //Ростов
-        //$this->request->server['REMOTE_ADDR'] = '185.49.243.255';
+        $this->request->server['REMOTE_ADDR'] = '185.49.243.255';
         //Омск
-        $this->request->server['REMOTE_ADDR'] = '195.18.27.255';
+        //$this->request->server['REMOTE_ADDR'] = '195.18.27.255';
         
         
         $this->load->model('tool/simplegeo');

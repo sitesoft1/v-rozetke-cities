@@ -19,6 +19,15 @@
     border-bottom: 1px dashed;
      */
 }
+
+.ok_button{
+    position: relative;
+    top: -240px;
+}
+#city-ok-button{
+  text-align:center;
+}
+
 .select_wrp_region{
     float: left;
 }

@@ -8,7 +8,8 @@ class ControllerToolCities extends Controller {
         
         $cities_options = '<option value=""></option>';
         foreach ($cities as $city){
-            $cities_options .= '<option value="'.$city['CityCode'].'">'.$city['CityName'].'</option>';
+            //$cities_options .= '<option value="'.$city['CityCode'].'">'.$city['CityName'].'</option>';
+            $cities_options .= '<option value="'.$city['CityName'].'" data-code="'.$city['CityCode'].'">'.$city['CityName'].'</option>';
         }
         
 		echo $cities_options;
