@@ -48,7 +48,9 @@
 
 <!-- Выбор города -->
 <link rel='stylesheet' href='catalog/view/theme/oct_ultrastore/stylesheet/city.css' type='text/css' />
+<link rel='stylesheet' href='catalog/view/theme/oct_ultrastore/stylesheet/chosen.min.css' type='text/css' />
 <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/city1.js'></script>
+<script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/chosen.jquery.min.js'></script>
 <!-- Выбор города КОНЕЦ -->
 
 </head>
@@ -160,15 +162,68 @@
 	  <div class="fixed-overlay fixed-overlay__modal" style="display: none;">
 		  <div class="city_popup" id="city_popup" style="display: none;">
 			  <div class="head">
-				  <div class="title">Выберите город:</div>
+				  <div class="title">Выбор города:</div>
 				  <div onclick="city_popup('hide')" class="close">x</div>
 			  </div>
 			  <div class="body">
+
+				  <div class="select_wrp_all">
+					  <div class="select_wrp select_wrp_region">
+						  <select class="js-chosen" name="region">
+							  {% for region in regions %}
+								  <option value="{{ region.id }}">{{ region.OblName }}</option>
+							  {% endfor %}
+						  </select>
+					  </div>
+
+					  <div class="select_wrp">
+						  <select class="js-chosen-city" name="city">
+							  <option value=""></option>
+						  </select>
+					  </div>
+				  </div>
+
+				  <script>
+					  $(document).ready(function(){
+
+						  $('.js-chosen').change(function(){
+							  console.log('change region');
+							  var region_id = $('.js-chosen').val();
+							  console.log(region_id);
+
+							  $.ajax({
+								  url: "http://v-rozetke.ru/index.php?route=tool/cities",
+								  cache: false,
+								  success: function(html){
+								  	console.log(html);
+									  $(".js-chosen-city").html('<option value=""></option><option value="1">Москва</option><option value="2">Санкт-петербург</option><option value="3">Омск</option>');
+									  $('.js-chosen-city').chosen({
+										  width: '100%',
+										  no_results_text: 'Совпадений не найдено',
+										  placeholder_text_single: 'Выберите город'
+									  });
+								  }
+							  });
+
+						  });
+
+
+						  $('.js-chosen').chosen({
+							  width: '100%',
+							  no_results_text: 'Совпадений не найдено',
+							  placeholder_text_single: 'Выберите область'
+						  });
+
+					  });
+				  </script>
+
+				  <!--
 				  <ul class="list">
 					  {% for region in regions %}
 						  <li id="{{ region.id }}">{{ region.OblName }}</li>
 					  {% endfor %}
 				  </ul>
+				  -->
 
 				  <!--
 				  <ul class="list">
