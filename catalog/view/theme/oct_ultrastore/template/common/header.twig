@@ -52,9 +52,12 @@
 
 <!-- Выбор города -->
 <link rel='stylesheet' href='catalog/view/theme/oct_ultrastore/stylesheet/city.css' type='text/css' />
-<link rel='stylesheet' href='catalog/view/theme/oct_ultrastore/stylesheet/chosen.min.css' type='text/css' />
 <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/city1.js'></script>
-<script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/chosen.jquery.min.js'></script>
+	<!-- selectize -->
+<script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/selectize/microplugin.js'></script>
+<script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/selectize/sifter.min.js'></script>
+<script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/selectize/selectize.min.js'></script>
+	<!-- selectize END -->
 <!-- Выбор города КОНЕЦ -->
 
 </head>
@@ -210,15 +213,8 @@
 								  url: "index.php?route=tool/cities&region_id="+region_id,
 								  cache: false,
 								  success: function(html){
-
 									  $(".js-chosen-city").html(html);
-
-										  $('.js-chosen-city').chosen({
-											  width: '100%',
-											  no_results_text: 'Совпадений не найдено',
-											  placeholder_text_single: 'Выберите город'
-										  });
-
+									  $('.js-chosen-city').selectize();
 								  }
 							  });
 
@@ -235,13 +231,7 @@
 
 						  });
 
-
-						  $('.js-chosen').chosen({
-							  width: '100%',
-							  no_results_text: 'Совпадений не найдено',
-							  placeholder_text_single: 'Выберите область'
-						  });
-						 
+						  $('.js-chosen').selectize();
 
 					  });
 				  </script>
