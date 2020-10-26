@@ -22,7 +22,7 @@
 
 .ok_button{
     position: relative;
-    top: -240px;
+    top: -230px;
 }
 #city-ok-button{
   text-align:center;
@@ -30,6 +30,7 @@
 
 .select_wrp_region{
     float: left;
+    margin-right: 1% !important;
 }
 .select_wrp_all{
     margin-left: auto;
@@ -52,9 +53,24 @@
     #city_selected{
         border-left: 1px solid rgba(255,255,255,.1);
     }
+
+    .city_selected_block{
+      width: 16.6666% !important;
+    }
 }
+
+
+@media screen and (min-width: 1200px){
+
+    .city_selected_block{
+      max-width: 30.6666% !important;
+      min-width: 16.6666% !important;
+    }
+}
+
 .city_selected_block{
-    width: 16.6666%;
+    max-width: 20.6666%;
+    min-width: 16.6666%;
 }
 
 .fixed-overlay {
