@@ -53,7 +53,8 @@
 <!-- Выбор города -->
 <link rel='stylesheet' href='catalog/view/theme/oct_ultrastore/stylesheet/city.css' type='text/css' />
 <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/city1.js'></script>
-	<!-- selectize -->
+	 <!-- selectize -->
+<link rel='stylesheet' href='catalog/view/theme/oct_ultrastore/stylesheet/selectize/selectize.default.css' type='text/css' />
 <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/selectize/microplugin.js'></script>
 <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/selectize/sifter.min.js'></script>
 <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/selectize/selectize.min.js'></script>
@@ -177,15 +178,15 @@
 				  <div class="select_wrp_all">
 
 					  <div class="select_wrp select_wrp_region">
-						  <select class="js-chosen" name="region">
-							  {% for region in regions %}
-								  <option value="{{ region.id }}">{{ region.OblName }}</option>
-							  {% endfor %}
-						  </select>
+					<select class="js-chosen" name="region" placeholder="Выберите область">
+						{% for region in regions %}
+							<option value="{{ region.id }}">{{ region.OblName }}</option>
+						{% endfor %}
+					</select>
 					  </div>
 
 					  <div class="select_wrp select_wrp_city">
-						  <select class="js-chosen-city" name="city"><option value=""></option></select>
+						  <select class="js-chosen-city" name="city" placeholder="Выберите город"><option value=""></option></select>
 					  </div>
 
 				  </div>
@@ -195,6 +196,8 @@
 
 				  <script>
 					  $(document).ready(function(){
+					  	  
+					  	  $('.js-chosen').selectize();
 
 					  	$('.ok_button').hide();
 
@@ -203,7 +206,7 @@
 						  $('.js-chosen').on('change', function(){
 
 						  	$('.ok_button').hide();
-						  	$(".select_wrp_city").html('<select class="js-chosen-city" name="city"><option value=""></option></select>');
+						  	$(".select_wrp_city").html('<select class="js-chosen-city" name="city" placeholder="Выберите город"><option value=""></option></select>');
 
 							  console.log('change region');
 							  var region_id = $('.js-chosen').val();
@@ -228,25 +231,17 @@
 							  		});
 							  });
 
-
 						  });
-
-						  $('.js-chosen').selectize();
 
 					  });
 				  </script>
 
-				  <!--
-				  <ul class="list">
-					  <li id="achinsk"><a onclick="change_city('achinsk');" title="Ачинск">Ачинск</a></li>
-					  <li id="bogotol"><a onclick="change_city('bogotol');" title="Боготол">Боготол</a></li>
-					  <li id="krasnoyarsk"><a onclick="change_city('krasnoyarsk');" title="Красноярск">Красноярск</a></li>
-				  </ul>
-				  -->
 			  </div>
 		  </div>
 	  </div>
 	  <script type='text/javascript' src='catalog/view/theme/oct_ultrastore/js/city2.js'></script>
+	  			  
+
 	  <!-- Выбор города КОНЕЦ -->
 
 		<div id="top-links" class="nav ml-auto d-flex">
