@@ -7,7 +7,9 @@
 <!--<![endif]-->
 <head>
 <meta name="yandex-verification" content="af390d4187468fc3" />
+
 <!-- Yandex.Metrika counter -->
+<!--
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -21,7 +23,9 @@
    });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/48182045" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+-->
 <!-- /Yandex.Metrika counter -->
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -207,7 +211,6 @@
 								  cache: false,
 								  success: function(html){
 
-
 									  $(".js-chosen-city").html(html);
 
 										  $('.js-chosen-city').chosen({
@@ -219,6 +222,7 @@
 								  }
 							  });
 
+
 							  $('.js-chosen-city').on('change', function(){
 							  		$('.ok_button').show();
 
@@ -227,6 +231,7 @@
 							  			change_city(new_city_name);
 							  		});
 							  });
+
 
 						  });
 
