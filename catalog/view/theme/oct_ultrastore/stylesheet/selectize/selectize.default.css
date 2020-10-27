@@ -263,7 +263,8 @@
 .selectize-dropdown .option,
 .selectize-dropdown [data-disabled],
 .selectize-dropdown [data-disabled] [data-selectable].option {
-  cursor: inherit;
+  /*cursor: inherit;*/
+  cursor: pointer;
   opacity: 0.5;
 }
 .selectize-dropdown [data-selectable].option {
