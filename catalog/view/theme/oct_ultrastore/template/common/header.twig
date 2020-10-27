@@ -178,7 +178,8 @@
 				  <div class="select_wrp_all">
 
 					  <div class="select_wrp select_wrp_region">
-					<select class="js-chosen" name="region" placeholder="Выберите область">
+					<select class="js-chosen" name="region" placeholder="Выберите регион">
+						<option value=""></option>
 						{% for region in regions %}
 							<option value="{{ region.id }}">{{ region.OblName }}</option>
 						{% endfor %}
@@ -198,6 +199,7 @@
 					  $(document).ready(function(){
 					  	  
 					  	  $('.js-chosen').selectize();
+					  	  $('.js-chosen-city').addClass("city_hide");
 
 					  	$('.ok_button').hide();
 
@@ -208,16 +210,15 @@
 						  	$('.ok_button').hide();
 						  	$(".select_wrp_city").html('<select class="js-chosen-city" name="city" placeholder="Выберите город"><option value=""></option></select>');
 
-							  console.log('change region');
 							  var region_id = $('.js-chosen').val();
-							  console.log(region_id);
-
+							  
 							  $.ajax({
 								  url: "index.php?route=tool/cities&region_id="+region_id,
 								  cache: false,
 								  success: function(html){
 									  $(".js-chosen-city").html(html);
 									  $('.js-chosen-city').selectize();
+									  $('.js-chosen-city').removeClass("city_hide");
 								  }
 							  });
 

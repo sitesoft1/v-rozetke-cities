@@ -33,6 +33,9 @@ class ControllerCommonHeader extends Controller {
         
         $this->load->model('tool/deliverygeo');
         $regions = $this->model_tool_deliverygeo->getCdekRegions();
+        if(empty($regions[0]['OblName'])){
+        	array_shift($regions);
+        }
         $data['regions'] = $regions;
         
 		// Analytics

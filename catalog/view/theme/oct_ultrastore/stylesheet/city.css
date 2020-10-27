@@ -20,6 +20,10 @@
      */
 }
 
+.city_hide{
+  display: none;
+}
+
 .ok_button{
     position: relative;
     top: -230px;
