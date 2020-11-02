@@ -4588,8 +4588,8 @@ button[data-target="#ocfilter-hidden-options"] {
 }
 
 .product-grid .us-module-title {
-	height: 42px;
-	/*overflow-y: hidden;*/
+	max-height: 58px;
+	overflow-y: hidden;
 }
 
 .us-product-category-quantity {

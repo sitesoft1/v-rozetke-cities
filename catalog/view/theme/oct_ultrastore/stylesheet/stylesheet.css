@@ -744,8 +744,3 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
-
-.product-grid .us-module-title {
-	height: 42px;
-	overflow-y: unset !important;
-}
