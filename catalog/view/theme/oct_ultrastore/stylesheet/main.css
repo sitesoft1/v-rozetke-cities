@@ -4591,6 +4591,12 @@ button[data-target="#ocfilter-hidden-options"] {
 	max-height: 58px;
 	overflow-y: hidden;
 }
+@media screen and (min-width: 767px) {
+    .product-grid .us-module-title {
+        max-height: 62px;
+        overflow-y: hidden;
+    }
+}
 
 .us-product-category-quantity {
 	margin-bottom: 15px;
