@@ -2,8 +2,24 @@
 class ControllerCheckoutSuccess extends Controller {
 	public function index() {
 		$this->load->language('checkout/success');
-
+		
 		if (isset($this->session->data['order_id'])) {
+            
+            //Код для гугл отзывов
+            $data['merchant_order_id'] = $this->session->data['order_id'];
+            $data['merchant_delivery_country'] = 'RU';
+            $data['merchant_estimated_delivery_date'] = date('Y-m-d', strtotime('+3 days'));
+            if(isset($this->session->data['guest']['email']) and !empty($this->session->data['guest']['email'])){
+                $data['merchant_email'] = $this->session->data['guest']['email'];
+            }else{
+                $this->load->model('checkout/order');
+                $order_data = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+                if(isset($order_data['email']) and !empty($order_data['email'])){
+                    $data['merchant_email'] = $order_data['email'];
+                }
+            }
+            //Код для гугл отзывов END
+		    
 			$this->cart->clear();
 
 			unset($this->session->data['shipping_method']);

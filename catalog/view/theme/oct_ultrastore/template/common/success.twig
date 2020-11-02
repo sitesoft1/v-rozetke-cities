@@ -1,0 +1,47 @@
+{{ header }}
+<div id="common-success" class="container flex-container">
+	<nav aria-label="breadcrumb">
+	  <ul class="breadcrumb us-breadcrumb">
+	    {% for breadcrumb in breadcrumbs %}
+	    <li class="breadcrumb-item us-breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+	    {% endfor %}
+	  </ul>
+	</nav>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="us-main-shop-title">{{ heading_title }}</div>
+		</div>
+	</div>
+	<div class="content-top-box">{{ content_top }}</div>
+	<div class="row">{{ column_left }}
+	    {% if column_left and column_right %}
+	    {% set class = 'col-sm-6' %}
+	    {% elseif column_left or column_right %}
+	    {% set class = 'col-sm-9' %}
+	    {% else %}
+	    {% set class = 'col-sm-12' %}
+	    {% endif %}
+	    <div id="content" class="{{ class }}">
+		    <div class="us-content">
+
+				{% if merchant_order_id and merchant_email %}
+					<script>
+						var merchant_order_id = '{{ merchant_order_id }}';
+						var merchant_email = '{{ merchant_email }}';
+						var merchant_delivery_country = '{{ merchant_delivery_country }}';
+						var merchant_estimated_delivery_date = '{{ merchant_estimated_delivery_date }}';
+					</script>
+				{% endif %}
+
+		      {{ text_message }}
+		      {{ text_success }}
+		      <div class="buttons mt-4">
+		        <a href="{{ continue }}" class="us-module-btn us-module-btn-greeny">{{ button_continue }}</a>
+		      </div>
+		      {{ content_bottom }}
+		    </div>
+	    </div>
+	    {{ column_right }}
+	</div>
+</div>
+{{ footer }}

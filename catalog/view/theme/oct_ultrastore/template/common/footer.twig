@@ -161,5 +161,28 @@
 <script src="{{ script }}"></script>
 {% endfor %}
 <div class="modal-holder"></div>
+<script>
+    function addScript(src){
+        var script = document.createElement('script');
+        script.src = src;
+        document.body.appendChild(script);
+    }
+    if(merchant_order_id){
+        addScript('https://apis.google.com/js/platform.js?onload=renderOptIn');
+        window.renderOptIn = function() {
+            window.gapi.load('surveyoptin', function() {
+                window.gapi.surveyoptin.render(
+                    {
+                        // REQUIRED FIELDS
+                        "merchant_id": 129718987,
+                        "order_id": merchant_order_id,
+                        "email": merchant_email,
+                        "delivery_country": merchant_delivery_country,
+                        "estimated_delivery_date": merchant_estimated_delivery_date
+                    });
+            });
+        }
+    }
+</script>
 </body>
 </html>
